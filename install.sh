@@ -1,33 +1,20 @@
 #!/bin/bash
 
-echo "🔥 Checking for Go installation..."
-if ! command -v go &> /dev/null
-then
-    echo "[!] Go is not installed! Please install Go and run this script again."
+echo "🔥 Checking for Python installation..."
+if ! command -v python3 &> /dev/null; then
+    echo "[-] Python3 is not installed. Please install it and try again."
     exit 1
 else
-    echo "[+] Go is already installed!"
-fi
-
-# Set Go path in bashrc/zshrc if not set
-if [ -z "$GOPATH" ]; then
-    echo "🔥 Setting up Go environment variables..."
-    echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-    echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
-    source ~/.bashrc
-    echo "[+] Go environment variables set!"
+    echo "[+] Python3 is installed!"
 fi
 
 echo "🔥 Installing dependencies..."
-go mod tidy
+pip3 install -r requirements.txt
 
-echo "🔥 Building the tool..."
-go build -o cyberx-ray main.go
+echo "🔥 Making CyberX-Ray executable..."
+chmod +x cyberxray.py
 
-echo "🔥 Moving binary to /usr/local/bin/"
-sudo mv cyberx-ray /usr/local/bin/
+echo "🔥 Moving CyberX-Ray to /usr/local/bin/"
+sudo mv cyberxray.py /usr/local/bin/cyberxray
 
-echo "🔥 Setting permissions..."
-sudo chmod +x /usr/local/bin/cyberx-ray
-
-echo "✅ Installation complete! Now you can run the tool from anywhere using: cyberx-ray"
+echo "✅ Installation complete! Now you can run the tool from anywhere using: cyberxray"
