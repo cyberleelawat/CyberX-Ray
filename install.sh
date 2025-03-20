@@ -8,7 +8,7 @@ then
 fi
 echo "[+] Go is already installed!"
 
-echo "🔥 Installing dependencies..."
+echo "🔥 Initializing Go module..."
 go mod init cyberxray 2>/dev/null
 go mod tidy
 
