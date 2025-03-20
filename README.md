@@ -14,7 +14,7 @@ CyberX-Ray is an advanced technology detection tool that helps identify a websit
 ## 📌 Installation
 ### **Step 1: Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/CyberX-Ray.git
+git clone https://github.com/Professor1711/CyberX-Ray.git
 cd CyberX-Ray
 ```
 
