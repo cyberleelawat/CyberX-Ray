@@ -3,25 +3,26 @@
 echo "🔥 Checking for Go installation..."
 if ! command -v go &> /dev/null
 then
-    echo "❌ Go is not installed. Please install Golang first."
+    echo "[!] Go is not installed! Please install Go and run this script again."
     exit 1
+else
+    echo "[+] Go is already installed!"
 fi
-echo "[+] Go is already installed!"
 
-echo "🔥 Removing old binary (if exists)..."
-sudo rm -f /usr/local/bin/cyberx-ray
+# Set Go path in bashrc/zshrc if not set
+if [ -z "$GOPATH" ]; then
+    echo "🔥 Setting up Go environment variables..."
+    echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+    echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
+    source ~/.bashrc
+    echo "[+] Go environment variables set!"
+fi
 
-echo "🔥 Initializing Go module..."
-go mod init cyberxray 2>/dev/null
+echo "🔥 Installing dependencies..."
 go mod tidy
 
 echo "🔥 Building the tool..."
 go build -o cyberx-ray main.go
-
-if [ ! -f "cyberx-ray" ]; then
-    echo "❌ Build failed! Check your Go code."
-    exit 1
-fi
 
 echo "🔥 Moving binary to /usr/local/bin/"
 sudo mv cyberx-ray /usr/local/bin/
