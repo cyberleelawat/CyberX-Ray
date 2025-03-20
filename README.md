@@ -69,4 +69,4 @@ Enter website URL (with http/https): https://wix.com
 This project is open-source and distributed under the **MIT License**.
 
 ## 🤝 Credits
-Developed by **Virendra Kumar (DigitalProfessor)**.
+Developed by **Virendra Kumar**.
