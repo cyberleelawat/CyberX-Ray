@@ -8,6 +8,9 @@ then
 fi
 echo "[+] Go is already installed!"
 
+echo "🔥 Removing old binary (if exists)..."
+sudo rm -f /usr/local/bin/cyberx-ray
+
 echo "🔥 Initializing Go module..."
 go mod init cyberxray 2>/dev/null
 go mod tidy
