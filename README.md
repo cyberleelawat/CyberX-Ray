@@ -34,7 +34,7 @@ pip3 install -r requirements.txt
 ## 🔍 Usage
 Run CyberX-Ray using the following command:
 ```bash
-python3 cyberxray.py
+python3 cyberx-ray.py
 ```
 Enter the website URL when prompted:
 ```
