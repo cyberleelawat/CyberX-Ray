@@ -3,23 +3,27 @@
 echo "🔥 Checking for Go installation..."
 if ! command -v go &> /dev/null
 then
-    echo "[+] Go not found! Installing Go..."
-    sudo apt update && sudo apt install -y golang
-else
-    echo "[+] Go is already installed!"
+    echo "❌ Go is not installed. Please install Golang first."
+    exit 1
 fi
+echo "[+] Go is already installed!"
 
 echo "🔥 Installing dependencies..."
-go mod init professor-scan > /dev/null 2>&1
+go mod init cyberxray 2>/dev/null
 go mod tidy
 
 echo "🔥 Building the tool..."
-go build -o professor-scan test.go
+go build -o cyberx-ray main.go
+
+if [ ! -f "cyberx-ray" ]; then
+    echo "❌ Build failed! Check your Go code."
+    exit 1
+fi
 
 echo "🔥 Moving binary to /usr/local/bin/"
-sudo mv professor-scan /usr/local/bin/professor-scan
+sudo mv cyberx-ray /usr/local/bin/
 
 echo "🔥 Setting permissions..."
-sudo chmod +x /usr/local/bin/professor-scan
+sudo chmod +x /usr/local/bin/cyberx-ray
 
-echo "✅ Installation complete! Now you can run the tool from anywhere using: professor-scan"
+echo "✅ Installation complete! Now you can run the tool from anywhere using: cyberx-ray"
