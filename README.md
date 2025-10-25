@@ -48,7 +48,7 @@ The tool will then display:
 
 ## 📌 Example Output
 ```
-PROFESSOR
+Mr. Leelawat
 Made by Virendra Kumar
 
 Enter website URL (with http/https): https://wix.com
