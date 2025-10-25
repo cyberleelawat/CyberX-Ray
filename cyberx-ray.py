@@ -4,7 +4,7 @@ import re
 
 # Banner print function
 def print_banner():
-    print(colored("\nPROFESSOR\n", "cyan"))
+    print(colored("\nMr. Leelawat\n", "cyan"))
     print("Made by Virendra Kumar\n")
 
 # Fetch website headers and content
